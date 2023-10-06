@@ -8,28 +8,46 @@
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/redSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="30dp"
+        android:layout_width="57dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="239dp"
         android:checked="true"
-        app:layout_constraintEnd_toStartOf="@+id/redSeekBar"
+        android:text="@string/redSwitchName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:showText="false"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/redSeekBar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginBottom="403dp"
+        android:layout_width="92dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="372dp"
+        android:max="100"
         android:padding="5dp"
         android:saveEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/redDecimalValue"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="106dp"
+        android:ems="10"
+        android:hint="@string/exampleValue"
+        android:inputType="numberDecimal"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redSeekBar" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="224dp"
+        android:layout_height="131dp"
+        android:background="@color/red"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="60dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
