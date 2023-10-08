@@ -6,48 +6,147 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/redSwitch"
-        android:layout_width="57dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="239dp"
-        android:checked="true"
-        android:text="@string/redSwitchName"
+    <View
+        android:id="@+id/colorBox"
+        android:layout_width="252dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="66dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Switch
+        android:id="@+id/redSwitch"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="21dp"
+        android:checked="true"
+        android:theme="@style/RedSwitchTheme"
+        app:layout_constraintEnd_toStartOf="@+id/redSeekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorBox" />
+
+    <Switch
+        android:id="@+id/greenSwitch"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="21dp"
+        android:checked="true"
+        android:theme="@style/GreenSwitchTheme"
+        app:layout_constraintEnd_toStartOf="@+id/greenSeekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redSwitch" />
+
+    <Switch
+        android:id="@+id/blueSwitch"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="21dp"
+        android:checked="true"
+        android:theme="@style/BlueSwitchTheme"
+        app:layout_constraintEnd_toStartOf="@+id/blueSeekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenSwitch" />
+
     <SeekBar
         android:id="@+id/redSeekBar"
-        android:layout_width="92dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginBottom="372dp"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="56dp"
         android:max="100"
         android:padding="5dp"
         android:saveEnabled="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/redSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/colorBox" />
+
+    <SeekBar
+        android:id="@+id/greenSeekBar"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="33dp"
+        android:max="100"
+        android:padding="5dp"
+        android:saveEnabled="true"
+        app:layout_constraintStart_toEndOf="@+id/greenSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/redSeekBar" />
+
+    <SeekBar
+        android:id="@+id/blueSeekBar"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="33dp"
+        android:max="100"
+        android:padding="5dp"
+        android:saveEnabled="true"
+        app:layout_constraintStart_toEndOf="@+id/blueSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/greenSeekBar" />
 
     <EditText
         android:id="@+id/redDecimalValue"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="48dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="106dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/exampleValue"
         android:inputType="numberDecimal"
         android:textColor="@color/red"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redSeekBar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/redSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/colorBox" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="224dp"
-        android:layout_height="131dp"
-        android:background="@color/red"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="60dp" />
+    <EditText
+        android:id="@+id/greenDecimalValue"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="26dp"
+        android:ems="10"
+        android:hint="@string/exampleValue"
+        android:inputType="numberDecimal"
+        android:textColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/greenSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/redDecimalValue" />
+
+    <EditText
+        android:id="@+id/blueDecimalValue"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="26dp"
+        android:ems="10"
+        android:hint="@string/exampleValue"
+        android:inputType="numberDecimal"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/blueSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/greenDecimalValue" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="147dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="48dp"
+        android:text="@string/resetButtonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
