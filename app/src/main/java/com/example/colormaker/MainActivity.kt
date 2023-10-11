@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         redSeek.progress = (red * 100).toInt()
 
         // starting point for green value
-        var green: Float = 1.0F
+        var green: Float = 0.8F
         greenNum.setText(green.toString())
         greenSeek.progress = (green * 100).toInt()
 
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         blueNum.isEnabled = blueSwitch.isChecked
 
         // starting point for color box
-        screen.setBackgroundColor(Color.rgb(127, 255, 76))
+        screen.setBackgroundColor(Color.rgb(127, 204, 76))
 
         // Red Switch Listener
         redSwitch.setOnCheckedChangeListener { _, _ ->
@@ -178,7 +178,7 @@ class MainActivity : AppCompatActivity() {
             red = 0.5F
             redNum.setText(red.toString())
             redSeek.progress = (red * 100).toInt()
-            green = 1.0F
+            green = 0.8F
             greenNum.setText(green.toString())
             greenSeek.progress = (green * 100).toInt()
             blue = 0.3F
@@ -195,7 +195,7 @@ class MainActivity : AppCompatActivity() {
             blueSeek.isEnabled = blueSwitch.isChecked
             blueNum.isEnabled = blueSwitch.isChecked
 
-            screen.setBackgroundColor(Color.rgb(127, 255, 76))
+            screen.setBackgroundColor(Color.rgb(127, 204, 76))
         }
     }
 }
