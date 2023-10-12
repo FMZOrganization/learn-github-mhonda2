@@ -60,11 +60,13 @@
         android:id="@+id/redSeekBar"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="11dp"
         android:layout_marginTop="56dp"
+        android:layout_marginEnd="11dp"
         android:max="100"
         android:padding="5dp"
         android:saveEnabled="true"
+        app:layout_constraintEnd_toStartOf="@+id/redDecimalValue"
         app:layout_constraintStart_toEndOf="@+id/redSwitch"
         app:layout_constraintTop_toBottomOf="@+id/colorBox" />
 
@@ -72,11 +74,13 @@
         android:id="@+id/greenSeekBar"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="11dp"
         android:layout_marginTop="33dp"
+        android:layout_marginEnd="11dp"
         android:max="100"
         android:padding="5dp"
         android:saveEnabled="true"
+        app:layout_constraintEnd_toStartOf="@+id/greenDecimalValue"
         app:layout_constraintStart_toEndOf="@+id/greenSwitch"
         app:layout_constraintTop_toBottomOf="@+id/redSeekBar" />
 
@@ -84,11 +88,13 @@
         android:id="@+id/blueSeekBar"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="11dp"
         android:layout_marginTop="33dp"
+        android:layout_marginEnd="11dp"
         android:max="100"
         android:padding="5dp"
         android:saveEnabled="true"
+        app:layout_constraintEnd_toStartOf="@+id/blueDecimalValue"
         app:layout_constraintStart_toEndOf="@+id/blueSwitch"
         app:layout_constraintTop_toBottomOf="@+id/greenSeekBar" />
 
@@ -98,7 +104,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="11dp"
         android:layout_marginTop="59dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="26dp"
         android:ems="10"
         android:hint="@string/exampleValue"
         android:inputType="numberDecimal"

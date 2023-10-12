@@ -8,8 +8,8 @@
 
     <View
         android:id="@+id/colorBox"
-        android:layout_width="299dp"
-        android:layout_height="332dp"
+        android:layout_width="199dp"
+        android:layout_height="268dp"
         android:layout_marginStart="42dp"
         android:layout_marginTop="39dp"
         android:layout_marginBottom="40dp"
@@ -137,10 +137,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="165dp"
         android:layout_marginEnd="137dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/resetButtonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/colorBox" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

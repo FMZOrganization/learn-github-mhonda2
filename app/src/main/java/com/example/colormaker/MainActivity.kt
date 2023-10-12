@@ -47,17 +47,20 @@ class MainActivity : AppCompatActivity() {
 
         // starting point for red value
         var red: Float = 0.5F
+        var redTemp: Float = red
         redNum.setText(red.toString())
         redSeek.progress = (red * 100).toInt()
 
         // starting point for green value
         var green: Float = 0.8F
+        var greenTemp: Float = green
         greenNum.setText(green.toString())
         greenSeek.progress = (green * 100).toInt()
 
         // starting point for blue value
         var blue: Float = 0.3F
-        greenNum.setText(blue.toString())
+        var blueTemp: Float = blue
+        blueNum.setText(blue.toString())
         blueSeek.progress = (blue * 100).toInt()
 
         // starting point for views
@@ -69,18 +72,20 @@ class MainActivity : AppCompatActivity() {
         blueNum.isEnabled = blueSwitch.isChecked
 
         // starting point for color box
-        screen.setBackgroundColor(Color.rgb(127, 204, 76))
+        screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
 
         // Red Switch Listener
         redSwitch.setOnCheckedChangeListener { _, _ ->
             redSeek.isEnabled = redSwitch.isChecked
             redNum.isEnabled = redSwitch.isChecked
             if (!redSwitch.isChecked) {
-                screen.setBackgroundColor(Color.rgb(0, (255 * green).toInt(), (255 * blue).toInt()))
+                redTemp = red
+                red = 0.0F
             }
             else {
-                screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
+                red = redTemp
             }
+            screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
         }
 
         // Green Switch Listener
@@ -88,11 +93,13 @@ class MainActivity : AppCompatActivity() {
             greenSeek.isEnabled = greenSwitch.isChecked
             greenNum.isEnabled = greenSwitch.isChecked
             if (!greenSwitch.isChecked) {
-                screen.setBackgroundColor(Color.rgb((255 * red).toInt(), 0, (255 * blue).toInt()))
+                greenTemp = green
+                green = 0.0F
             }
             else {
-                screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
+                green = greenTemp
             }
+            screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
         }
 
         // Blue Switch Listener
@@ -100,11 +107,13 @@ class MainActivity : AppCompatActivity() {
             blueSeek.isEnabled = blueSwitch.isChecked
             blueNum.isEnabled = blueSwitch.isChecked
             if (!blueSwitch.isChecked) {
-                screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), 0))
+                blueTemp = blue
+                blue = 0.0F
             }
             else {
-                screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
+                blue = blueTemp
             }
+            screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
         }
 
         // Red Text Listener
@@ -112,6 +121,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 red = redNum.text.toString().toFloat()
                 redSeek.progress = (red * 100).toInt()
+                redTemp = red
                 screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -123,6 +133,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 green = greenNum.text.toString().toFloat()
                 greenSeek.progress = (green * 100).toInt()
+                greenTemp = green
                 screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -134,6 +145,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 blue = blueNum.text.toString().toFloat()
                 blueSeek.progress = (blue * 100).toInt()
+                blueTemp = blue
                 screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -145,6 +157,7 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(redSeek: SeekBar, progress: Int, fromUser: Boolean) {
                 red = redSeek.progress / 100.0F
                 redNum.setText(red.toString())
+                redTemp = red
                 screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
             }
             override fun onStartTrackingTouch(redSeek: SeekBar) {}
@@ -156,6 +169,7 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(greenSeek: SeekBar, progress: Int, fromUser: Boolean) {
                 green = greenSeek.progress / 100.0F
                 greenNum.setText(green.toString())
+                greenTemp = green
                 screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
             }
             override fun onStartTrackingTouch(greenSeek: SeekBar) {}
@@ -167,22 +181,26 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(blueSeek: SeekBar, progress: Int, fromUser: Boolean) {
                 blue = blueSeek.progress / 100.0F
                 blueNum.setText(blue.toString())
+                blueTemp = blue
                 screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
             }
-            override fun onStartTrackingTouch(greenSeek: SeekBar) {}
-            override fun onStopTrackingTouch(greenSeek: SeekBar) {}
+            override fun onStartTrackingTouch(blueSeek: SeekBar) {}
+            override fun onStopTrackingTouch(blueSeek: SeekBar) {}
         })
 
         // Reset Button Listener
         reset.setOnClickListener {
             red = 0.5F
+            redTemp = red
             redNum.setText(red.toString())
             redSeek.progress = (red * 100).toInt()
             green = 0.8F
+            greenTemp = green
             greenNum.setText(green.toString())
             greenSeek.progress = (green * 100).toInt()
             blue = 0.3F
-            greenNum.setText(blue.toString())
+            blueTemp = blue
+            blueNum.setText(blue.toString())
             blueSeek.progress = (blue * 100).toInt()
 
             redSwitch.isChecked = true
@@ -195,7 +213,7 @@ class MainActivity : AppCompatActivity() {
             blueSeek.isEnabled = blueSwitch.isChecked
             blueNum.isEnabled = blueSwitch.isChecked
 
-            screen.setBackgroundColor(Color.rgb(127, 204, 76))
+            screen.setBackgroundColor(Color.rgb((255 * red).toInt(), (255 * green).toInt(), (255 * blue).toInt()))
         }
     }
 }
